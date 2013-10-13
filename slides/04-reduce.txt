@@ -1,0 +1,25 @@
+|) _  |   _ _ 
+|\(/_(|L|(_(/_
+
+
+Combine all elements of a list using a binary function.
+
+>>> lst = [1,2,3]
+>>> reduce(lambda x,y: x+y, lst) # 1 + 2 + 3
+6
+
+Java implementation using accumulator:
+
+    public interface IReduceInt {
+        int doReduce(int a, int b);
+    }
+
+    public static int reduce(int[] values, int startIndex,
+		int endIndex, IReduceInt reducer, int initial) {
+        int value = initial;
+        for (int i = startIndex; i < endIndex; i++) {
+            value = reducer.doReduce(value, values[i]);
+        }
+        return value;
+    }
+

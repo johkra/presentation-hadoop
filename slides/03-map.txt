@@ -1,0 +1,22 @@
+|\/|    
+|  |(||)
+      | 
+
+Apply a function to each element of a collection.
+
+>>> lst = [1,2,3]
+>>> map(lambda x: x*2, lst)
+[2, 4, 6]
+
+In-place version in Java:
+
+	public interface IMapInt {
+		int doMap(int value);
+	}
+
+	public static void map(int[] values, int startIndex,
+		int endIndex, IMapInt mapper) {
+		for (int i = startIndex; i < endIndex; i++) {
+			values[i] = mapper.doMap(values[i]);
+		}
+	}

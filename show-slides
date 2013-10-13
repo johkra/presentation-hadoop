@@ -1,0 +1,73 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+	echo Usage: $0 SLIDE FILES
+	exit
+fi
+
+INPUT=""
+CURRENT="$1"
+
+function get_keypress() {
+	old_tty_settings=$(stty -g)
+	stty -icanon -echo
+	INPUT=$(head -c1)
+	stty "$old_tty_settings"
+}
+
+function select_slide() {
+	clear
+	echo Slide overview:
+	echo
+	for file; do
+		name=$(basename -s .txt $file)
+		echo ${name//-/ }
+	done
+	read SLIDE_NUMBER
+	if [ -z "$SLIDE_NUMBER" ]; then
+		return
+	fi
+	for slide; do
+		if [[ $(basename $slide) == "$SLIDE_NUMBER"* ]]; then
+			CURRENT=$slide
+			break
+		fi
+	done
+}
+
+function next_slide() {
+	FOUND=""
+	for slide; do
+		if [ $FOUND ]; then
+			CURRENT=$slide
+			break
+		fi
+		if [ "$CURRENT" = "$slide" ]; then
+			FOUND="TRUE"
+		fi
+	done
+}
+
+function previous_slide() {
+	PREVIOUS=""
+	for slide; do
+		if [ "$CURRENT" = "$slide" ]; then
+			if [ $PREVIOUS ]; then
+				CURRENT=$PREVIOUS
+				break
+			fi
+		fi
+		PREVIOUS=$slide
+	done
+}
+
+while [ "$INPUT" != "q" ]; do
+	case $INPUT in
+		"l") select_slide $@;;
+		"n") next_slide $@;;
+		"p") previous_slide $@;;
+	esac
+	clear
+	< "$CURRENT" grcat slides
+	get_keypress
+done

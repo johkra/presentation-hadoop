@@ -1,0 +1,20 @@
+|)  ,_,_.,_      |_|   |        .  | 
+|\L||||||||(| (| | |(|(|()()|)  |()|)
+           _|               |  _|    
+
+Create an executable jar file.
+
+Start this jar file using the hadoop utility.
+
+	$ hadoop jar <file.jar>
+
+Status can be observed in output or on the job tracker.
+
+	http://master.hadoop-cluster.iig:50030
+
+Programs in other languages can also be used for the Map and Reduce tasks using
+Hadoop streaming.
+
+	$ hadoop jar hadoop-streaming.jar -file mapper.py -mapper mapper.py \
+	-file reducer.py -reducer reducer.py -D mapreduce.job.name = "myjob" \
+	-input hdfs://master/input -output hdfs://master/output

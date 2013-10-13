@@ -1,0 +1,17 @@
+|)      || _ |. _.,_   |\/|    
+| (||`(|||(/_||_\|||(| |  |(||)
+                    _|       | 
+
+Application of function on each element independant.
+
+-> Can run function applications in parallel.
+
+Example:
+	Map + PMap
+
+
+Difficulty:
+	Bring data and computation resources together.
+
+Example:
+	PMap with simple operation. (21.3 GB/s peak transfer rate.)

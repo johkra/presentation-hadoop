@@ -1,0 +1,16 @@
+|)      || _ |. _.,_   |) _  |   _ _ 
+| (||`(|||(/_||_\|||(| |\(/_(|L|(_(/_
+                    _|               
+
+Divide-and-Conquer to parallelise Reduce.
+
+Function has to be associative:
+	(1 + 2) + (3 + 4) == 1 + 2 + 3 + 4
+	(1 - 2) - (3 - 4) != 1 - 2 - 3 - 4 
+
+Limited set of functions:
+	SUM, PRODUCT, AND, OR, XOR, MIN, MAX, CONCAT
+
+
+Example:
+	Reduce + PReduce

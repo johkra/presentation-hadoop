@@ -1,0 +1,19 @@
+regexp=^[^>\t].*?\w:
+colours=default bold
+count=once
+=====
+regexp=(int|void)\b
+colours=blue
+count=more
+=====
+regexp=(public|static|class|extends|interface|\tfor|return|while|throws)\b
+colours=green
+count=more
+=====
+regexp=->
+colours=blue bold
+count=once
+=====
+regexp=\".*?\"
+colours=magenta
+count=more

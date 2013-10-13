@@ -1,0 +1,14 @@
+|_|   |       |\. _|-  .|   |- _  | [~.| _  (`   _|- _ ,_ 
+| |(|(|()()|) |/|_\|_|`||)L||_(/_(| | ||(/_ _)\/_\|_(/_|||
+           |                                  /           
+
+Need to get data to and from compute nodes.
+
+-> Split input data into 64MB chunks and store 3 copies of each chunk on nodes
+	in cluster.
+
+-> Map tasks work on locally available data if possible.
+
+Combiner:
+	Reduce-like task run on the Node after a Map task to decrease amount
+	of data to be copied over the network.

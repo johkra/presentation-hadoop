@@ -1,0 +1,26 @@
+|)|  ,_ | .,_   .,_ |_|   |      
+| |L|||||)|||(| ||| | |(|(|()()|)
+             _|                | 
+
+public static void main(String[] args) throws Exception {
+	Configuration configuration = new GenericOptionsParser(args)
+		.getConfiguration();
+	Cluster cluster = new Cluster(configuration);
+	Job job = Job.getInstance(cluster);
+	job.setJobName("mapreducetest");
+	job.setJarByClass(MapReduceHadoop.class);
+	job.setMapperClass(GCDMapper.class);
+	job.setCombinerClass(IntMaxReducer.class);
+	job.setReducerClass(IntMaxReducer.class);
+	job.setOutputKeyClass(IntWritable.class);
+	job.setOutputValueClass(IntWritable.class);
+	FileInputFormat.addInputPath(job, new Path(
+		"hdfs://master/tests/presentation20130611/input.dat"
+	));
+	FileOutputFormat.setOutputPath(job, new Path(String.format(
+		"hdfs://master/tests/presentation20130611/output-%s.dat",
+		new SimpleDateFormat("yyyyMMdd'T'HHmmss").format(new Date())
+	)));
+	System.exit(job.waitForCompletion(true) ? 0 : 1);
+}
+

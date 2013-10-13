@@ -1,0 +1,15 @@
+|\/|    |) _  |   _ _ 
+|  |(||)|\(/_(|L|(_(/_
+      |               
+
+Works on key-value pairs.
+
+Steps:
+	1. Map input.
+	2. Sort output from Map by key.
+	3. Reduce sorted output from Map.
+
+Example:
+	1. Extract year and temperature from historical data.
+	2. Sort by year.
+	3. Find maximum temperature for each year.

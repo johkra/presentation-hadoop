@@ -1,0 +1,22 @@
+ /|  _|_    |- |_. _|-       | _  _ _  ,_
+/-| _\||()|`|_ |||_\|_()|`\/ |(/__\_\()||
+                          /              
+
+1958:
+	Lisp is invented by John McCarthy at MIT.
+	Includes the Map function. (Reduce could be defined with Lisp 1.0, too.)
+	These higher-order functions are basic blocks in functional programming.
+
+Starting in the 60s:
+	Use of distributed computing and computing cluster.
+
+Around 2000:
+	Google uses the MapReduce programming model for parallel,
+	distributed computation on a cluster.
+
+2004:
+	A paper describing MapReduce is published.
+
+2005:
+	Hadoop as popular MapReduce implementation was created by Yahoo!
+	employees.

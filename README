@@ -1,0 +1,7 @@
+Slides and code used for an introductory presentation on MapReduce and Hadoop.
+
+The slides are in plain text and to be used the the bash script show-slides. The later depends on grc [1] and provides a simple interface to show colourised slides in a shell. Use n and p to advance to the next slide or return to the previous slide, l to show all slides and select one by typing the first letters of it and q to quit. Please move the supplied grc configuration file to $HOME/.grc/slides
+
+The code is designed to be modified and run in real-time during the presentation to explain different concepts.
+
+[1] http://kassiopeia.juls.savba.sk/~garabik/software/grc.html
